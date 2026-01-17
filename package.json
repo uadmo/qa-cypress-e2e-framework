@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/uadmo/qa-cypress-e2e-framework#readme",
   "devDependencies": {
-    "cypress": "^15.8.2",
+    "cypress": "^15.9.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
