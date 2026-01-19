@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "slug": "stubbed-article",
+      "title": "Stubbed Article Title",
+      "description": "This article comes from a mocked response",
+      "body": "Mocked content",
+      "tagList": ["cypress", "testing"],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "author": {
+        "username": "mock-user",
+        "bio": null,
+        "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    }
+  ],
+  "articlesCount": 1
+}
