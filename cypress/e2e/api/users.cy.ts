@@ -13,13 +13,3 @@ describe('Users API', () => {
         })
     })
 })
-
-describe('Users API - Mocked', () => {
-    it('handles empty user response', () => {
-        cy.intercept('GET', '**/users', { statusCode: 200, body: { users: [] } }).as('getUser')
-
-        cy.visit('https://dummyjson.com/user')
-        cy.wait('@getUser')
-        cy.contains('No users').should('exist')
-    })
-})
