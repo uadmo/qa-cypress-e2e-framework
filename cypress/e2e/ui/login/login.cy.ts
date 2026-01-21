@@ -1,5 +1,5 @@
 import LoginPage from '@pages/LoginPage'
-import { User } from '../../types/user'
+import { User } from '../../../types/user'
 
 beforeEach(() => {
     LoginPage.visit()
