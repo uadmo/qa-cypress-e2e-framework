@@ -5,6 +5,9 @@ export default defineConfig({
     baseUrl: 'https://www.saucedemo.com',
     setupNodeEvents(on, config) {
       return config
-    }
+    },
+    screenshotsFolder: 'cypress/screenshots',
+    videosFolder: 'cypress/videos',
+    video: true
   }
 })
