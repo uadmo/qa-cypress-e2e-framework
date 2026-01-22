@@ -7,7 +7,9 @@ beforeEach(() => {
 
 describe('Login', () => {
     it('Should login successfully', () => {
-        LoginPage.login('standard_user', 'secret_sauce')
+        cy.fixture('users').then((users) => {
+            LoginPage.login(users.validUser.username, users.validUser.password)
+        })
 
         cy.url().should('include', '/inventory')
     })

@@ -2,7 +2,7 @@ describe('Article feed - Mocked', () => {
 
     beforeEach(() => {
         cy.intercept('GET', '**/api/articles**', { fixture: 'articles.json' }).as('getArticles')
-        cy.visit('https://demo.realworld.io')
+        cy.visit(Cypress.env('realworldUrl'))
     })
 
     it('display articles from mocked response', () => {
