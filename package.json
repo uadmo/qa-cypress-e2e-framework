@@ -11,7 +11,7 @@
     "cy:api": "cypress run --spec \"cypress/e2e/api/**/*\"",
     "cy:smoke": "cypress run --env grep=smoke",
     "cy:regression": "cypress run --env grep=regression"
-  },  
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uadmo/qa-cypress-e2e-framework.git"
@@ -26,6 +26,8 @@
   "homepage": "https://github.com/uadmo/qa-cypress-e2e-framework#readme",
   "devDependencies": {
     "cypress": "^15.9.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "mocha-junit-reporter": "^2.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }

@@ -3,6 +3,14 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 export default defineConfig({
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    reporterEnabled: "spec, mocha-junit-reporter",
+    mochaJunitReporterReporterOptions: {
+      mochaFile: "cypress/reports/junit-[hash].xml",
+      toConsole: false
+    }
+  },
   e2e: {
     setupNodeEvents(on, config) {
       const envName = config.env.env || 'dev'
