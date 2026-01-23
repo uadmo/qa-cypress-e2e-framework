@@ -7,9 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.ts\"",
-    "cy:ui": "cypress run --spec \"cypress/e2e/ui/**/*.cy.ts\""
-  },
+    "cy:ui": "cypress run --spec \"cypress/e2e/ui/**/*\"",
+    "cy:api": "cypress run --spec \"cypress/e2e/api/**/*\"",
+    "cy:smoke": "cypress run --env grep=smoke",
+    "cy:regression": "cypress run --env grep=regression"
+  },  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uadmo/qa-cypress-e2e-framework.git"

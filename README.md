@@ -60,23 +60,31 @@ All environments are centralized in **env.json**:
 
 ```json
 {
-  "dev": {
-    "baseUrl": "https://www.saucedemo.com",
-    "apiUrl": "https://reqres.in/api"
-  },
-  "staging": {
-    "baseUrl": "https://www.saucedemo.com",
-    "apiUrl": "https://reqres.in/api"
-  },
-  "prod": {
-    "baseUrl": "https://www.saucedemo.com",
-    "apiUrl": "https://reqres.in/api"
-  }
+    "dev": {
+        "baseUrl": "https://www.saucedemo.com",
+        "apiUrl": "https://reqres.in/api",
+        "jsonplaceholderUrl": "https://jsonplaceholder.typicode.com",
+        "realworldUrl": "https://demo.realworld.io"
+    },
+    "staging": {
+        "baseUrl": "https://www.saucedemo.com",
+        "apiUrl": "https://reqres.in/api",
+        "jsonplaceholderUrl": "https://jsonplaceholder.typicode.com",
+        "realworldUrl": "https://demo.realworld.io"
+    },
+    "prod": {
+        "baseUrl": "https://www.saucedemo.com",
+        "apiUrl": "https://reqres.in/api",
+        "jsonplaceholderUrl": "https://jsonplaceholder.typicode.com",
+        "realworldUrl": "https://demo.realworld.io"
+    }
 }
 ```
 
 - **baseUrl** → used for UI tests (SauceDemo)
 - **apiUrl** → used only where applicable for API tests
+- **jsonplaceholderUrl** → used only where applicable for API tests
+- **realworldUrl** → used only where applicable for API tests
 
  UI authentication for SauceDemo is performed via the UI (not API/session‑based), as SauceDemo does not support reliable API login for Cypress sessions.
 
