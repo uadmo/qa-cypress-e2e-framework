@@ -4,15 +4,17 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  schedule:
+    - cron: "0 2 * * *" # nightly regression
 
 jobs:
   api-tests:
     name: API Tests
     runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
@@ -20,7 +22,7 @@ jobs:
       - run: npm ci
       - run: npm run cy:api
 
-      - name: Upload API test report
+      - name: Upload API report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -30,6 +32,7 @@ jobs:
   ui-smoke-tests:
     name: UI Smoke Tests
     runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
 
     steps:
       - uses: actions/checkout@v4
@@ -38,32 +41,33 @@ jobs:
           node-version: 18.18.2
 
       - run: npm ci
-      - run: npm run cy:ui:smoke
+      - run: npm run cy:smoke
 
-      - name: Upload Smoke reports
+      - name: Upload Smoke report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ui-smoke-report
           path: cypress/reports
 
-      - name: Upload Cypress screenshots
+      - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots
+          name: smoke-screenshots
           path: cypress/screenshots
 
-      - name: Upload Cypress videos
+      - name: Upload videos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos
+          name: smoke-videos
           path: cypress/videos
 
   ui-regression-tests:
-    name: UI Regression Tests
+    name: UI Regression Tests (Nightly)
     runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
 
     steps:
       - uses: actions/checkout@v4
@@ -72,25 +76,25 @@ jobs:
           node-version: 18.18.2
 
       - run: npm ci
-      - run: npm run cy:ui:regression
+      - run: npm run cy:regression
 
-      - name: Upload Regression reports
+      - name: Upload Regression report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ui-regression-report
           path: cypress/reports
 
-      - name: Upload Cypress screenshots
+      - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots
+          name: regression-screenshots
           path: cypress/screenshots
 
-      - name: Upload Cypress videos
+      - name: Upload videos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos
+          name: regression-videos
           path: cypress/videos

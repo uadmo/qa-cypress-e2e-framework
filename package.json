@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:ui": "cypress run --spec \"cypress/e2e/ui/**/*\"",
-    "cy:api": "cypress run --spec \"cypress/e2e/api/**/*\"",
-    "cy:ui:smoke": "cypress run --env grep=smoke",
-    "cy:ui:regression": "cypress run --env grep=regression"
+    "cy:smoke": "cypress run --env grep=\\[smoke\\]",
+    "cy:regression": "cypress run --env grep=\\[regression\\]",
+    "cy:ui": "cypress run --env grep=\\[smoke\\|\\[regression\\]",
+    "cy:api": "cypress run --spec cypress/e2e/api/**"
   },
   "repository": {
     "type": "git",

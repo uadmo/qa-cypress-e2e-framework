@@ -38,5 +38,9 @@ export default defineConfig({
 
       return config
     }
+  },
+  retries: {
+    runMode: 2,
+    openMode: 0
   }
 })

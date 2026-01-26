@@ -1,7 +1,7 @@
 import { TypiResponse } from "cypress/types/typiresponse";
 
 describe('Users API', () => {
-    it('[api] fetches user by id', () => {
+    it('fetches user by id', () => {
         cy.request(`${Cypress.env('jsonplaceholderUrl')}/users/1`).then((response) => {
             expect(response.status).to.eq(200)
 
