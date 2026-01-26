@@ -19,6 +19,14 @@ jobs:
         with:
           node-version: 18.18.2
 
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+    
       - run: npm ci
       - run: npm run cy:api
 
@@ -39,6 +47,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - run: npm ci
       - run: npm run cy:smoke
@@ -74,6 +90,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - run: npm ci
       - run: npm run cy:regression
