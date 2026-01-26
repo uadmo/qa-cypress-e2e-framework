@@ -1,4 +1,4 @@
-describe('[ui][regression] Inventory page', () => {
+describe('Inventory page', () => {
 
     beforeEach(() => {
         cy.login('standard_user', 'secret_sauce')

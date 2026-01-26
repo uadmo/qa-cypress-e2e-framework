@@ -27,27 +27,60 @@ jobs:
           name: api-test-report
           path: cypress/reports
 
-  ui-tests:
-    name: UI Tests
+  ui-smoke-tests:
+    name: UI Smoke Tests
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
 
       - run: npm ci
-      - run: npm run cy:ui
+      - run: npm run cy:ui:smoke
 
-      - name: Upload UI test report
+      - name: Upload Smoke reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-test-report
+          name: ui-smoke-report
           path: cypress/reports
-        
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Upload Cypress videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+  ui-regression-tests:
+    name: UI Regression Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.2
+
+      - run: npm ci
+      - run: npm run cy:ui:regression
+
+      - name: Upload Regression reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-regression-report
+          path: cypress/reports
+
       - name: Upload Cypress screenshots
         if: failure()
         uses: actions/upload-artifact@v4

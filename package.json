@@ -9,8 +9,8 @@
     "cy:run": "cypress run",
     "cy:ui": "cypress run --spec \"cypress/e2e/ui/**/*\"",
     "cy:api": "cypress run --spec \"cypress/e2e/api/**/*\"",
-    "cy:smoke": "cypress run --env grep=smoke",
-    "cy:regression": "cypress run --env grep=regression"
+    "cy:ui:smoke": "cypress run --env grep=smoke",
+    "cy:ui:regression": "cypress run --env grep=regression"
   },
   "repository": {
     "type": "git",

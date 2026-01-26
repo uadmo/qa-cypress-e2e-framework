@@ -1,4 +1,4 @@
-describe('[api][regression] Article feed - Mocked', () => {
+describe('Article feed - Mocked', () => {
 
     beforeEach(() => {
         cy.intercept('GET', '**/api/articles**', { fixture: 'articles.json' }).as('getArticles')
