@@ -42,6 +42,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'schedule'
 
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [login, inventory]
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -57,7 +62,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: npm run cy:smoke
+      - run: npm run cy:ui:${{ matrix.suite }}
 
       - name: Upload Smoke report
         if: always()
@@ -85,6 +90,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule'
 
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [login, inventory]
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -100,7 +110,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: npm run cy:regression
+      - run: npm run cy:ui:regression:${{ matrix.suite }}
 
       - name: Upload Regression report
         if: always()
