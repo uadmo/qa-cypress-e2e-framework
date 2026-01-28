@@ -62,7 +62,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: npm run cy:ui:${{ matrix.suite }}
+      - run: npm run cy:smoke:${{ matrix.suite }}
 
       - name: Upload Smoke report
         if: always()
