@@ -7,14 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:smoke": "cypress run --env grep=\\[smoke\\]",
-    "cy:regression": "cypress run --env grep=\\[regression\\]",
-    "cy:ui": "cypress run --env grep=\\[smoke\\|\\[regression\\]",
     "cy:api": "cypress run --spec cypress/e2e/api/**",
-    "cy:smoke:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\"",
-    "cy:smoke:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\"",
-    "cy:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\"",
-    "cy:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\""
+    "cy:ui:smoke:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grep=\\[smoke\\]",
+    "cy:ui:smoke:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grep=\\[smoke\\]",
+    "cy:ui:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grep=\\[regression\\]",
+    "cy:ui:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grep=\\[regression\\]"
   },
   "repository": {
     "type": "git",
