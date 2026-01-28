@@ -13,8 +13,8 @@
     "cy:api": "cypress run --spec cypress/e2e/api/**",
     "cy:ui:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\"",
     "cy:ui:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\"",
-    "cy:ui:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\"",
-    "cy:ui:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\""
+    "cy:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\"",
+    "cy:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\""
   },
   "repository": {
     "type": "git",

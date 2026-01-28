@@ -110,7 +110,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: npm run cy:ui:regression:${{ matrix.suite }}
+      - run: npm run cy:regression:${{ matrix.suite }}
 
       - name: Upload Regression report
         if: always()
