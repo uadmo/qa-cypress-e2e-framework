@@ -1,4 +1,5 @@
 import { defineConfig } from 'cypress'
+import { plugin as grep } from '@cypress/grep/plugin'
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -13,6 +14,8 @@ export default defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
+      grep(config)
+
       const envName = config.env.env || 'dev'
       const envPath = path.resolve('cypress/env.json')
 
@@ -21,8 +24,8 @@ export default defineConfig({
       }
 
       const allEnvs = JSON.parse(fs.readFileSync(envPath, 'utf-8'))
-      
-      if(!allEnvs[envName]) {
+
+      if (!allEnvs[envName]) {
         throw new Error(`Environment ${envName} not found in ${envPath}`)
       }
 
@@ -38,6 +41,10 @@ export default defineConfig({
 
       return config
     }
+  },
+  env: {
+    grepFilterSpecs: true,
+    grepOmitFiltered: true
   },
   retries: {
     runMode: 2,

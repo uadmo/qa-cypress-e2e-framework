@@ -8,10 +8,10 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:api": "cypress run --spec cypress/e2e/api/**",
-    "cy:ui:smoke:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grep=\\[smoke\\]",
-    "cy:ui:smoke:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grep=\\[smoke\\]",
-    "cy:ui:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grep=\\[regression\\]",
-    "cy:ui:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grep=\\[regression\\]"
+    "cy:ui:smoke:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grepTags=@smoke",
+    "cy:ui:smoke:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grepTags=@smoke",
+    "cy:ui:regression:login": "cypress run --spec \"cypress/e2e/ui/login/**/*.cy.ts\" --env grepTags=@regression",
+    "cy:ui:regression:inventory": "cypress run --spec \"cypress/e2e/ui/inventory/**/*.cy.ts\" --env grepTags=@regression"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/uadmo/qa-cypress-e2e-framework#readme",
   "devDependencies": {
+    "@cypress/grep": "^5.1.0",
     "cypress": "^15.9.0",
     "cypress-multi-reporters": "^2.0.5",
     "mocha-junit-reporter": "^2.2.1",

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="11.473" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-01-29T17:19:18" tests="0" file="cypress\e2e\ui\login\login.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Login" timestamp="2026-01-29T17:19:18" tests="1" time="5.968" failures="0">
+    <testcase name="Login Should login successfully" time="5.918" classname="Should login successfully">
+    </testcase>
+  </testsuite>
+  <testsuite name="Login - invalid scenarios" timestamp="2026-01-29T17:19:24" tests="2" time="5.501" failures="0">
+    <testcase name="Login - invalid scenarios Should not login with invalid credentials" time="4.248" classname="Should not login with invalid credentials">
+    </testcase>
+    <testcase name="Login - invalid scenarios Should not login with locked out user" time="1.125" classname="Should not login with locked out user">
+    </testcase>
+  </testsuite>
+</testsuites>

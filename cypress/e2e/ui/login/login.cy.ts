@@ -6,7 +6,7 @@ beforeEach(() => {
 })
 
 describe('Login', () => {
-    it('[smoke] Should login successfully', () => {
+    it('Should login successfully', { tags: '@smoke' }, () => {
         cy.fixture('users').then((users) => {
             LoginPage.login(users.validUser.username, users.validUser.password)
         })
@@ -15,7 +15,7 @@ describe('Login', () => {
     })
 })
 
-describe ('Login - invalid scenarios', () => {
+describe('Login - invalid scenarios', () => {
     let validUser: User
     let invalidUser: User
     let lockedUser: User
@@ -28,13 +28,13 @@ describe ('Login - invalid scenarios', () => {
         })
     })
 
-    it('[regression] Should not login with invalid credentials', () => {
+    it('Should not login with invalid credentials', { tags: '@regression' }, () => {
         LoginPage.login(invalidUser.username, invalidUser.password)
 
         LoginPage.errorMessage().should('contain', 'Epic sadface')
     })
 
-    it('[regression] Should not login with locked out user', () => {
+    it('Should not login with locked out user', { tags: '@regression' }, () => {
         LoginPage.login(lockedUser.username, lockedUser.password)
 
         LoginPage.errorMessage().should('contain', 'locked out')

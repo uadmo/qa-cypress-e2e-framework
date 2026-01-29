@@ -68,21 +68,21 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-smoke-report
+          name: ui-smoke-report-${{ matrix.suite }}
           path: cypress/reports
 
       - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: smoke-screenshots
+          name: smoke-screenshots-${{ matrix.suite }}
           path: cypress/screenshots
 
       - name: Upload videos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: smoke-videos
+          name: smoke-videos-${{ matrix.suite }}
           path: cypress/videos
 
   ui-regression-tests:
@@ -116,19 +116,19 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-regression-report
+          name: ui-regression-report-${{ matrix.suite }}
           path: cypress/reports
 
       - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: regression-screenshots
+          name: regression-screenshots-${{ matrix.suite }}  
           path: cypress/screenshots
 
       - name: Upload videos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: regression-videos
+          name: regression-videos-${{ matrix.suite }}
           path: cypress/videos
