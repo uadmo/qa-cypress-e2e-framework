@@ -6,10 +6,18 @@ import * as path from 'path'
 export default defineConfig({
   reporter: "cypress-multi-reporters",
   reporterOptions: {
-    reporterEnabled: "spec, mocha-junit-reporter",
+    reporterEnabled: "spec, mocha-junit-reporter, mochawesome",
+
     mochaJunitReporterReporterOptions: {
       mochaFile: "cypress/reports/junit-[hash].xml",
       toConsole: false
+    },
+
+    mochawesomeReporterOptions: {
+      reportDir: "cypress/reports/json",
+      overwrite: false,
+      html: false,
+      json: true
     }
   },
   e2e: {
