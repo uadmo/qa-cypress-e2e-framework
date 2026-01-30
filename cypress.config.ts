@@ -47,6 +47,13 @@ export default defineConfig({
 
       console.log(`Running tests on environment: ${envName}`)
 
+      on('task', {
+        log(message) {
+          console.log(message)
+          return null
+        },
+      })
+
       return config
     }
   },
